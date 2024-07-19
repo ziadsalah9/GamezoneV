@@ -1,0 +1,35 @@
+﻿@using GamezoneV.Settings
+@model Game
+
+@{
+	ViewData["Title"] = Model.Name;
+}
+
+<div class="card border-success rounded-4 mt-5 overflow-hidden" >
+
+	<div class="card-body ">
+
+		<div class="row">
+			<div class="col-md-8 px-5 py-4 d-felx flex-column justify-content-between" > 
+				<div>
+					<h1 class="text-succes fw-bolder">@Model.Name</h1>
+					<span class="badge bg-primary fs-5 mb-4">@Model.Category?.Name</span>
+					<p class="fs-5">@Model.Description</p>
+				</div>
+				<div>
+
+					@foreach (var icon in Model.Devices)
+					{
+						<i class="@icon.Device.Icon me-2 fs-1 text-primary" ></i>
+					}
+
+				</div>
+			</div>
+			<div class="col-md-4">
+				<img src ="@($"{FileSettings.ImagesPath}/{Model.Cover}")" alt="@Model.Name" style="width :100%"></img>
+			</div>
+
+		</div>
+	</div>
+
+</div>
